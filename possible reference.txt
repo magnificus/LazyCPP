@@ -1,0 +1,104 @@
+// C++
+
+#include <iostream>
+using namespace std;
+
+int main() 
+{
+    cout << "Hello, World!";
+    return 0;
+}
+
+
+// LazyCPP
+
+#include <iostream>
+using namespace std;
+
+main
+{
+	cout << "Hello, World!";
+	return 0;
+}
+
+
+// C++
+
+int main()
+{
+    int i, n;
+    float arr[100];
+
+    cout << "Enter total number of elements(1 to 100): ";
+    cin >> n;
+    cout << endl;
+
+    // Store number entered by the user
+    for(i = 0; i < n; ++i)
+    {
+       cout << "Enter Number " << i + 1 << " : ";
+       cin >> arr[i];
+    }
+
+    // Loop to store largest number to arr[0]
+    for(i = 1;i < n; ++i)
+    {
+       // Change < to > if you want to find the smallest element
+       if(arr[0] < arr[i])
+           arr[0] = arr[i];
+    }
+    cout << "Largest element = " << arr[0];
+
+    return 0;
+}
+
+// LazyCPP
+
+main()
+{
+    cout << "Enter total number of elements(1 to 100): ";
+    cin >> n;
+    cout << endl;
+	arrs;
+    // Store number entered by the user
+	LCPP_for(n)[i]{
+		cout << "enter number " << i + 1 << " : ";
+		int val;
+		cin >> val;
+		arrs.add(val);
+	}
+	
+	cout << "Largest element = " << max(arrs);
+
+    return 0;
+}
+
+c++ checkprime
+
+// Check prime number
+bool checkPrime(int n)
+{
+    int i;
+    bool isPrime = true;
+
+    for(i = 2; i <= n/2; ++i)
+    {
+        if(n % i == 0)
+        {
+            isPrime = false;
+            break;
+        }
+    }
+
+    return isPrime;
+}
+
+// LazyCPP checkprime
+
+LCPP_FUNCTION divisible (a, n) = a % n == 0 
+
+checkPrime(int n)
+{
+	candidates = LCPP_List(2,n/2 + 1)
+	return LCPP_filter(divisible, candidates).Size() > 0
+}
