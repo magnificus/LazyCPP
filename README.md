@@ -1,4 +1,4 @@
 # LazyCPP
 
-A stupid c++ extension
+A stupid c++ extension, 
 but for who's pleasure?
