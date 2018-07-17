@@ -1,0 +1,7 @@
+*.hi
+*.hs~
+*.o
+*.swp
+*.un~
+*.exe
+*.obj
