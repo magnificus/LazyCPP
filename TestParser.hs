@@ -4,23 +4,21 @@ import qualified Control.Monad as Monad
 
 import Data.Map (Map, (!))
 import qualified Data.Map as Map
-import Data.List.Split as Split
 import Data.Maybe
 
-lcpp_function s = "int " ++ (identifier s) ++ "() { \n    return 0;\n}\n" 
+import LCPP_Function
+import Matcher
+import Text.Regex
 
-content s = init $ concatMap(++ " ") . tail $ splitS s
-identifier = head . splitS
-splitS = Split.splitOn " "
+-- these bad boys recursively matches all pattern matches with the function they should be exchanged with
+combine r f (s1,s2,s3,s4) = s1 ++ (f s2) ++ (findApplyMatching r s3 f)
+findApplyMatching r s f = fromMaybe s $ Monad.liftM (combine r f) (matchRegexAll r s)
 
-getInterpreted :: String -> Maybe String
-getInterpreted s = if (Map.member iden specialCommands) then Monad.liftM (specialCommands ! iden) (return (content s)) else (return s)
-    where iden = identifier s
- 
-specialCommands = Map.fromList [("LCPP_FUNCTION", lcpp_function)]
+matchings = [(lcpp_matcher_regex, lcpp_function)]
+
+applyAllMatchings s = foldl (\s (r, f) -> findApplyMatching r s f) s matchings
 
 main = do
     contents <- readFile "input/infile.lcpp"
-    let modifiedContents = concatMap(++ "\n") $ catMaybes $ map getInterpreted $ lines contents
-    let contentLines = lines contents
+    let modifiedContents = applyAllMatchings contents
     writeFile "output/outfile.cpp" modifiedContents

@@ -1,3 +1,4 @@
+LCPP_FUNCTION testing
 int main(){
-	return 0;
+    return 0;
 }

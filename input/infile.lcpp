@@ -1,4 +1,4 @@
-LCPP_FUNCTION testing
+LCPP_FUNCTION testing (a, n) = a % n == 0
 int main(){
-	return 0;
+    return 0;
 }
