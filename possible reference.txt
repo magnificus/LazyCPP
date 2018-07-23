@@ -96,9 +96,14 @@ bool checkPrime(int n)
 // LazyCPP checkprime
 
 LCPP_FUNCTION divisible (a, n) = a % n == 0 
+LCPP_filter_against_list(list1, list2, function) = for (auto a : list1) { for (auto b : list2) if (function (a, b)}
+LCPP_filter(list, function) = for (auto a : list) {if (function(a)) ToReturn.Add(a) };
 
 checkPrime(int n)
 {
 	candidates = LCPP_List(2,n/2 + 1)
-	return LCPP_filter(divisible, candidates).Size() > 0
+	return LCPP_filter_against_list(divisible, candidates).Size() > 0
 }
+
+LCPP_filter (array, predicate) = for (auto a : array)
+

@@ -1,4 +1,7 @@
-#define testing() 0
+//#include <iostream>
+
+#define testing(a, n) a % n == 0
 int main(){
-    return 0;
+    //std::cout << "testing";
+    return testing (1, 2);
 }

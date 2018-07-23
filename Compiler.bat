@@ -1,2 +1,3 @@
+ghc -main-is LazyCPP TestParser.hs
 TestParser.exe
-cl outfile.cpp
+gcc output/outfile.cpp
