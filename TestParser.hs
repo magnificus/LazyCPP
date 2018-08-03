@@ -24,5 +24,5 @@ applyAllMatchings s = foldl (\s (r, f) -> findApplyMatching r s f) s matchings
 
 main = do
     contents <- readFile "input/infile.lcpp"
-    let modifiedContents = applyAllMatchings contents
+    let modifiedContents = (!! 5) $ iterate applyAllMatchings contents -- we do the transform 5 times
     writeFile "output/outfile.cpp" modifiedContents
