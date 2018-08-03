@@ -1,4 +1,4 @@
-module LazyCPP where
+module Main where
 
 import qualified Control.Monad as Monad
 

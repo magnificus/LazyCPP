@@ -1,0 +1,3 @@
+ghc -o TestParser TestParser.hs
+./TestParser
+g++ -o CompiledCPP output/outfile.cpp

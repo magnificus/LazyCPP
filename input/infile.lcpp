@@ -1,4 +1,4 @@
-//#include <iostream>
+#include <iostream>
 
 LCPP_FUNCTION testing (a, n) = a % n == 0
 int main(){
