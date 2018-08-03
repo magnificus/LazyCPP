@@ -8,6 +8,7 @@ import Data.Maybe
 
 import LCPP_Function
 import LCPP_Filter
+import LCPP_BaseLibrary
 import Matcher
 import Text.Regex
 
@@ -19,10 +20,13 @@ combine r f (s1,s2,s3,s4) = s1 ++ (f s2) ++ (findApplyMatching r s3 f)
 findApplyMatching r s f = fromMaybe s $ Monad.liftM (combine r f) (matchRegexAll r s)
 
 matchings = [(lcpp_matcher_regex, lcpp_function)]
+baseFunctions = [(min_v_regex, min_v), (max_v_regex, max_v)]
 
 applyAllMatchings s = foldl (\s (r, f) -> findApplyMatching r s f) s matchings
+--addBaseFunctions s = foldl (\s (rbaseFunctions
 
 main = do
     contents <- readFile "input/infile.lcpp"
     let modifiedContents = (!! 5) $ iterate applyAllMatchings contents -- we do the transform 5 times
+    let modifiedContents = modifiedContents
     writeFile "output/outfile.cpp" modifiedContents
