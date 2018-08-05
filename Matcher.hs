@@ -12,3 +12,5 @@ maxParenthesis = "[(](.*)[)]" -- matches longest possible parenthesis
 minParenthesis = "[(]([^)]*)[)]" -- matches shortest possible parenthesis
 firstP = head . (fromMaybe [""]) . (matchRegex (mkRegex minParenthesis))
 afterEq = head . (fromMaybe [""]) . (matchRegex (mkRegex "=(.*)"))
+
+upUntilLastPreLine = mkRegex "//LCPP_FUNCTION_POS\\n"--mkRegex "(.*)#(inlude|define)(.*)\n"
