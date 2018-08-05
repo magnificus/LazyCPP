@@ -7,5 +7,5 @@ mostSomething n c = "template <typename T>\nT LCPP_" ++ n ++ "(std::vector<T> In
 
 max_v_regex = "LCPP_max_v"
 min_v_regex = "LCPP_min_v"
-max_v = mostSomething "min_vector" ">"
-min_v = mostSomething "max_vector" "<"
+max_v = mostSomething "max_v" ">"
+min_v = mostSomething "min_v" "<"

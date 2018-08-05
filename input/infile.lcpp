@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 
-//LCPP_FUNCTION_POS
 LCPP_FUNCTION testing (a, n) = a % n == 0
 int main(){
     LCPP_max_v(asd);

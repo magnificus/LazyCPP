@@ -18,7 +18,7 @@ includes = ["<iostream>", "<algorithm>"]
 
 -- these bad boys recursively matches all pattern matches with the function they should be exchanged with
 combineDestructive r f (s1,s2,s3,_) = s1 ++ (f s2) ++ (findApplyMatching r s3 f)
-combineAdditive s (s1,s2,s3,_) = s1 ++ s2 ++ s ++ s3
+combineAdditive s (s1,s2,s3,_) = s1 ++ s2 ++ "\n"++ s ++"\n"++ s3
 findApplyMatching r s f = fromMaybe s $ Monad.liftM (combineDestructive r f) (matchRegexAll r s)
 applyAllMatchings s = foldl (\s (r, f) -> findApplyMatching r s f) s matchings
 -- this function adds the all the base functions referenced in the code 
