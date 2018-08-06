@@ -93,6 +93,25 @@ bool checkPrime(int n)
     return isPrime;
 }
 
+template <typename T>
+T LCPP_max_v(std::vector<T> InVector){
+        T temp;
+        for (T a : InVector){
+                temp = a > temp ? a : temp;
+        }
+        return temp;
+}
+
+template <typename T>
+std::vector<T> getlcpp_vector(T min, T max, T interval = (T) 1){
+	std::vector<T> ToReturn;
+	for (T i = min; i <= max; i += interval){
+		ToReturn.push_back(i);
+	}
+	return ToReturn;
+}
+
+
 // LazyCPP checkprime
 
 LCPP_FUNCTION divisible (a, n) = a % n == 0 
